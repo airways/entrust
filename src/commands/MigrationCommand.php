@@ -28,7 +28,8 @@ class MigrationCommand extends Command {
     public function __construct()
     {
         parent::__construct();
-        app()['view']->addNamespace('entrust',substr(__DIR__,0,-8).'views');
+        $app = app();
+        $app['view']->addNamespace('entrust',substr(__DIR__,0,-8).'views');
     }
 
     /**
@@ -89,8 +90,9 @@ class MigrationCommand extends Command {
      */
     protected function createMigration( $roles_table = 'roles' )
     {
+        $app = app();
         $migration_file = $this->laravel->path."/database/migrations/".date('Y_m_d_His')."_entrust_setup_tables.php";
-        $output = app()['view']->make('entrust::generators.migration')->with('table', $roles_table)->render();
+        $output = $app['view']->make('entrust::generators.migration')->with('table', $roles_table)->render();
 
         if( ! file_exists( $migration_file ) )
         {
