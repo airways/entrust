@@ -1,4 +1,6 @@
-# Entrust (Laravel4 Package)
+# Entrust (Laravel4 Package) (php 5.3)
+
+**Note:** This fork exists to temporarily maintain PHP 5.3 compatibility for entrust.
 
 ![Entrust Poster](https://dl.dropbox.com/u/12506137/libs_bundles/entrust.png)
 
